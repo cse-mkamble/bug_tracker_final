@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from 'axios'
+import { BASE_URL } from "../config";
 
 export default class BugEdit extends React.Component{
 
@@ -27,7 +28,7 @@ export default class BugEdit extends React.Component{
     }
 
     loadData() {
-        axios.get(`/api/bugs/${this.props.match.params.id}`)
+        axios.get(`${BASE_URL}/api/bugs/${this.props.match.params.id}`)
             .then(response => {
                 this.setState(response.data)
             })
@@ -54,7 +55,7 @@ export default class BugEdit extends React.Component{
             email: this.state.email,
             readme: this.state.readme
         }
-        axios.put(`/api/bugs/${this.props.match.params.id}`, bug)
+        axios.put(`${BASE_URL}/api/bugs/${this.props.match.params.id}`, bug)
             .then(response => this.setState({ bug: response.data }))
     }
 
