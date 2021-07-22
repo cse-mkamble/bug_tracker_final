@@ -13,9 +13,7 @@ const bugsSchema = new mongoose.Schema({
     priority: {
         type: String,
     },
-    email: {
-        type: String,
-    },
+    email: String,
     readme: {
         type: String,
     }
